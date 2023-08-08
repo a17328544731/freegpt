@@ -1,14 +1,57 @@
-<footer>
-
 <div class="rounded-lg p-6 w-auto">
-    <h2 class="text-2xl font-bold mb-2 text-shadow-glow">友情链接:
-      <a href="https://chat7.chatxyz.online" target="_blank">GPT4 点击进入</a>
-    </h2>
-    <div style="position:fixed;bottom:0;left:0;">
-      <img src="https://jiyuimg.wzjo2o.com/chatgpt_weixin.jpeg" alt="Image description" style="width:250px;height:250px;">
-      <p>如果你觉得我们的服务有价值,请考虑打赏，帮助我们继续运营。谢谢!</p>
+  <div class="flex flex-col items-center">
+    <div class="flex items-center space-x-4">
+      <h2 class="text-2xl font-bold mb-2 text-shadow-glow">
+        友情链接:
+        <a href="https://chat7.chatxyz.online" target="_blank">GPT4 点击进入</a>
+      </h2>
     </div>
-</div>
-<script defer data-domain="gpt.aifree.site" src="https://analytics.gptnb.xyz/js/script.js"></script>
+  </div>
 
-</footer>
+  <div class="flex flex-col items-center">
+    <div class="flex items-center space-x-4">
+      <p id="donationMessage" class=" text-sm text-gray-600">
+        如果你觉得我们的服务有价值，请考虑打赏，帮助我们继续运营。谢谢！
+      </p>
+      <span id="donateButton" class="donation-button border-1 rounded-md transition-colors ">捐赠</span>
+
+    </div>
+
+    <img
+      id="donationImage"
+      class="hidden mt-4 w-4/5 mt-2 max-w-[300px]"
+      src="https://jiyuimg.wzjo2o.com/WechatIMG27.jpeg"
+      alt="捐赠图片"
+    />
+  </div>
+</div>
+<style>
+.donation-button {
+  font-size: 12px; /* 调整按钮字体大小 */
+  padding: 4px 8px; /* 调整按钮内边距 */
+  border: 1px solid #ccc; /* 添加边框 */
+  border-radius: 4px; /* 添加圆角 */
+  background-color: #f0f0f0; /* 调整按钮背景色 */
+  color: #333; /* 调整按钮文字颜色 */
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.donation-button:hover {
+  background-color: #ddd; /* 调整鼠标悬停时按钮背景色 */
+  color: #000; /* 调整鼠标悬停时按钮文字颜色 */
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const donateButton = document.getElementById('donateButton')
+  const donationImage = document.getElementById('donationImage')
+
+  donateButton.addEventListener('click', () => {
+    if (donationImage.classList.contains('hidden'))
+      donationImage.classList.remove('hidden')
+    else
+      donationImage.classList.add('hidden')
+  })
+})
+</script>
