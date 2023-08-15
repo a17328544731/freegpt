@@ -40,7 +40,17 @@ export const post: APIRoute = async(context) => {
   if (httpsProxy)
     initOptions.dispatcher = new ProxyAgent(httpsProxy)
   // #vercel-end
+  const resp1 = await fetch(`${import.meta.env.API_URL}/plugin/freesite/accesslog?ip=${context.clientAddress}`, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method: 'GET',
+  })
 
+  const res = await resp1.text()
+  const resJson1 = JSON.parse(res)
+  if (resJson1.code !== 200)
+    return new Response(resJson1.message)
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   const response = await fetch(`${baseUrl}/v1/chat/completions`, initOptions).catch((err: Error) => {
